@@ -231,7 +231,7 @@ def cudnn_prepare(inputs, filters, strides, pad_h, pad_w):
     conv_desc = libcudnn.cudnnCreateConvolutionDescriptor()
     libcudnn.cudnnSetConvolution2dDescriptor(
         conv_desc, pad_h, pad_w, vertical_stride, horizontal_stride, upscalex,
-        upscaley, convolution_mode)
+        upscaley, convolution_mode, data_type)
 
     # Get output dimensions (first two values are n_input and filters_out)
     _, _, height_output, width_output = (
